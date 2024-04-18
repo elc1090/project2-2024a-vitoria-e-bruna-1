@@ -1,0 +1,9 @@
+
+.card {
+  min-width: 350px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: flex-end;
+}
