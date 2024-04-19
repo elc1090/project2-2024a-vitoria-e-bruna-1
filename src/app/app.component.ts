@@ -1,25 +1,26 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Question } from "./model/question.model";
-import { apiService } from "./services/api.service";
-import {QuestionComponent} from "./question/question.component";
+import { ApiService } from "./services/api.service";
+import { QuestionComponent } from "./question/question.component";
+import { ClarityIcons, codeIcon } from "@cds/core/icon";
+import { ClrLayoutModule } from "@clr/angular";
+import { MainMenuComponent } from "./main-menu/main-menu.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, QuestionComponent],
+  imports: [RouterOutlet, QuestionComponent, ClrLayoutModule, MainMenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'untitled';
-
   public category: string = 'linux';
   public difficulty: string = 'easy';
   public questions: Question[] = [];
 
-  constructor(private questionService: apiService) {
-
+  constructor(private questionService: ApiService) {
+    ClarityIcons.addIcons(codeIcon);
     this.getQuestions();
   }
 
