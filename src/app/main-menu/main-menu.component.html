@@ -13,16 +13,16 @@
 <div class="clr-row margin-2">
   <div class="clr-col-12 align-center">
     <div class="btn-group">
-      <div class="radio btn" (click)="setDifficulty('Easy')">
-        <input type="radio" name="difficulty" id="easy"/>
+      <div class="radio btn">
+        <input type="radio" value="easy" id="easy"  [(ngModel)]="difficulty">
         <label for="easy">Easy</label>
       </div>
-      <div class="radio btn" (click)="setDifficulty('Medium')">
-        <input type="radio" name="difficulty" id="medium"/>
+      <div class="radio btn">
+        <input type="radio" value="medium" id="medium" [(ngModel)]="difficulty">
         <label for="medium">Medium</label>
       </div>
-      <div class="radio btn" (click)="setDifficulty('Hard')">
-        <input type="radio" name="difficulty" id="hard"/>
+      <div class="radio btn">
+        <input type="radio" value="hard" id="hard" [(ngModel)]="difficulty">
         <label for="hard">Hard</label>
       </div>
     </div>
@@ -35,12 +35,14 @@
 </div>
 <div class="clr-row margin-2">
   <div class="clr-col-12 align-center">
+    <div *ngIf="loading">
+      <clr-spinner clrInline>Loading</clr-spinner>
+      <span>Loading</span>
+    </div>
     <div class="clr-row">
       @for (category of categories; track category; let index = $index) {
         <div class="clr-col-4">
-          <button class="btn btn-block" [class.btn-primary]="selectedCategory === category"
-                  (click)="setCategory(category)">{{ category }}
-          </button>
+          <button class="btn btn-block" (click)="send(category)">{{ category }}</button>
         </div>
         @if (index + 1 % 3 === 0) {
           <div class="clr-break-row"></div>
@@ -51,7 +53,10 @@
 </div>
 <div class="clr-row margin-2">
   <div class="clr-col-12 align-center">
-    <!-- TODO: add click event to button -->
-    <button class="btn btn-primary btn-block">Start</button>
+    <clr-alert [clrAlertType]="'warning'" *ngIf="error">
+      <clr-alert-item>
+        <span class="alert-text align-center">{{ message }}</span>
+      </clr-alert-item>
+    </clr-alert>
   </div>
 </div>
