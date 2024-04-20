@@ -5,7 +5,28 @@
   <div class="content-container">
     <div class="content-area">
       <div class="wrapper">
-        <app-main-menu></app-main-menu>
+        <div *ngIf="loading">
+          <clr-spinner clrInline>Loading</clr-spinner>
+          <span>Loading</span>
+        </div>
+        <!--TODO: esconder essa parte dps da requisicao-->
+        <app-main-menu (dataChange)="onDataChange($event)"></app-main-menu>
+        <!--TODO: mudar isso aqui-->
+        <div class="clr-row margin-2">
+          <div class="clr-col-12">
+            <app-question [questions]="questions" (dataChange)="onDataChange($event)"></app-question>
+          </div>
+        </div>
+
+        <div class="clr-row margin-2">
+          <div class="clr-col-12 align-center">
+            <clr-alert [clrAlertType]="'warning'" *ngIf="error">
+              <clr-alert-item>
+                <span class="alert-text align-center">{{ message }}</span>
+              </clr-alert-item>
+            </clr-alert>
+          </div>
+        </div>
       </div>
     </div>
   </div>

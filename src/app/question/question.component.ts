@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Question} from "../model/question.model";
 import {KeyValuePipe, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {MatOption} from "@angular/material/autocomplete";
@@ -40,19 +40,20 @@ import {MatButton} from "@angular/material/button";
   styleUrl: './question.component.css'
 })
 export class QuestionComponent {
-  @Input() question!: Question;
+  @Input() questions!: Question[];
 
   public selections = [];
   public multiple = false;
   public loading = true;
   public submitted = false;
+  @Output() dataChange = new EventEmitter<any>();
 
   constructor() {
     this.loading = false;
   }
 
   ngAfterViewInit() {
-    console.log(this.question)
+    console.log(this.questions)
     // @ts-ignore
     this.multiple = this.question.multiple_correct_answers == 'true';
   }
