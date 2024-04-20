@@ -11,6 +11,9 @@ export class MainMenuComponent {
 
   public categories: string[] = [];
 
+  public selectedCategory: string = "";
+  public selectedDifficulty: string = "";
+
   constructor(private apiService: ApiService) {
   }
 
@@ -18,5 +21,13 @@ export class MainMenuComponent {
     this.apiService.getCategories().subscribe(data => {
       this.categories = data.map(category => category.name);
     });
+  }
+
+  setDifficulty(difficulty: string) {
+    this.selectedDifficulty = difficulty;
+  }
+
+  setCategory(category: string) {
+    this.selectedCategory = category;
   }
 }
