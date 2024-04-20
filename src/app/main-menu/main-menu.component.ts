@@ -1,8 +1,10 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ApiService } from "../services/api.service";
-import {ClrAlertModule, ClrSpinnerModule} from "@clr/angular";
-import {NgIf} from "@angular/common";
-import {FormsModule} from "@angular/forms";
+import { ClrAlertModule, ClrSpinnerModule } from "@clr/angular";
+import { NgIf } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
+import { QuizConfig } from "../model/quiz-config.model";
 
 @Component({
   selector: 'app-main-menu',
@@ -17,7 +19,7 @@ import {FormsModule} from "@angular/forms";
   styleUrl: './main-menu.component.css'
 })
 export class MainMenuComponent {
-  @Output() dataChange = new EventEmitter<{difficulty: string, category: string}>();
+  @Output() dataChange = new EventEmitter<QuizConfig>();
 
   public categories: string[] = [];
   public loading = false;
@@ -25,18 +27,21 @@ export class MainMenuComponent {
   public message = '';
   public difficulty = '';
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private router: Router) {
   }
 
   ngOnInit() {
     this.loading = true;
-    this.apiService.getCategories().subscribe(data => {
-      this.loading = false;
-      this.categories = data.map(category => category.name);
-    }, (error) => {
-      this.loading = false;
-      this.error = true;
-      this.message = 'Failed to load categories';
+    this.apiService.getCategories().subscribe({
+      next: data => {
+        this.loading = false;
+        this.categories = data.map(category => category.name);
+      },
+      error: error => {
+        this.loading = false;
+        this.error = true;
+        this.message = 'Failed to load categories';
+      }
     });
   }
 
@@ -46,7 +51,9 @@ export class MainMenuComponent {
       this.message = 'Please select a difficulty';
       // return;
     } else {
-      this.dataChange.emit({difficulty: this.difficulty, category: category});
+      // this.dataChange.emit({difficulty: this.difficulty, category: category});
+      let quizConfig = new QuizConfig(this.difficulty, category);
+      this.router.navigate(['/quiz'], {state: quizConfig})
     }
   }
 }

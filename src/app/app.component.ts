@@ -7,11 +7,13 @@ import { ClarityIcons, codeIcon } from "@cds/core/icon";
 import {ClrAlertModule, ClrLayoutModule, ClrSpinnerModule} from "@clr/angular";
 import { MainMenuComponent } from "./main-menu/main-menu.component";
 import {NgIf} from "@angular/common";
+import { QuizComponent } from "./quiz/quiz.component";
+import { QuizConfig } from "./model/quiz-config.model";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, QuestionComponent, ClrLayoutModule, MainMenuComponent, ClrSpinnerModule, NgIf, ClrAlertModule],
+  imports: [RouterOutlet, QuestionComponent, ClrLayoutModule, MainMenuComponent, ClrSpinnerModule, NgIf, ClrAlertModule, QuizComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -26,22 +28,11 @@ export class AppComponent {
     ClarityIcons.addIcons(codeIcon);
   }
 
-  getQuestions(category: string, difficulty: string) {
-    this.loading = true;
-    this.questionService.getQuestions(category, difficulty).subscribe((data: any) => {
-      this.loading = false;
-      this.questions = data;
-      console.log(this.questions);
-    }, (error) => {
-      this.loading = false;
-      this.error = true;
-      this.message = 'Failed to load questions';
-    });
-  }
 
-  onDataChange(data: {difficulty: string, category: string}) {
+
+  onDataChange(data: QuizConfig) {
     // Use the data here
     console.log("app.component", data);
-    this.getQuestions(data.category, data.difficulty);
+    // this.getQuestions(data.category, data.difficulty);
   }
 }
