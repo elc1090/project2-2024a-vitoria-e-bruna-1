@@ -49,7 +49,7 @@ Substitua este trecho por uma lista detalhada de tecnologias usadas (tanto as b√
 - HTML
 - CSS
 - Angular
-- Angular Material
+- Clarity Design System
 
 #### Ambiente de desenvolvimento
 
@@ -59,8 +59,9 @@ Substitua este trecho por uma lista detalhada de tecnologias usadas (tanto as b√
 
 Substitua este trecho por uma lista bem detalhada de todo material consultado para ajudar no projeto, por exemplo:  URL de templates usados, URL de icon kits usados, cr√©ditos para colegas que colaboraram, geradores de c√≥digo (incluindo alguns prompts usados para o ChatGPT, se for o caso)
 
-- ...
-- ...
+- https://angular.dev/
+- https://clarity.design/
+- https://developer.mozilla.org/
 
 ---
 Projeto entregue para a disciplina de [Desenvolvimento de Software para a Web](http://github.com/andreainfufsm/elc1090-2024a) em 2024a
