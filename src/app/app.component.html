@@ -5,20 +5,13 @@
   <div class="content-container">
     <div class="content-area">
       <div class="wrapper">
-        <div *ngIf="loading">
-          <clr-spinner clrInline>Loading</clr-spinner>
-          <span>Loading</span>
-        </div>
+        @if (loading) {
+          <div>
+            <clr-spinner clrInline>Loading</clr-spinner>
+            <span>Loading</span>
+          </div>
+        }
         <router-outlet></router-outlet>
-<!--        &lt;!&ndash;TODO: esconder essa parte dps da requisicao&ndash;&gt;-->
-<!--        <app-main-menu (dataChange)="onDataChange($event)"></app-main-menu>-->
-        <!--TODO: mudar isso aqui-->
-        <!--        <div class="clr-row margin-2">-->
-        <!--          <div class="clr-col-12">-->
-        <!--            <app-question [questions]="questions" (dataChange)="onDataChange($event)"></app-question>-->
-        <!--          </div>-->
-        <!--        </div>-->
-<!--        <app-quiz></app-quiz>-->
         <div class="clr-row margin-2">
           <div class="clr-col-12 align-center">
             <clr-alert [clrAlertType]="'warning'" *ngIf="error">

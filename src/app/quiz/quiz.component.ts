@@ -19,6 +19,7 @@ export class QuizComponent {
 
   public quizConfig: QuizConfig;
   public questions: Question[] = [];
+  public questionIndex = 0;
 
   public loading = false;
   public error = false;

@@ -32,6 +32,22 @@
 <!--</mat-card>-->
 <div class="clr-row margin-1">
   <div class="clr-col-12 align-center">
-     <span cds-text="message">{{ question.question }}</span>
+    <span cds-text="message">{{ question.question }}</span>
   </div>
+</div>
+<div class="clr-row margin-2">
+  @for (answer of question.answers | keyvalue; track answer) {
+    @if (!question.multiple_correct_answers) {
+      @if (answer.value != null) {
+        <div class="clr-col-12">
+          <button class="btn btn-block"
+                  [class.btn-success]="submitted && answer.key === this.selected && answer.key === this.question.correct_answer"
+                  [class.btn-danger]="submitted && answer.key === this.selected && answer.key !== this.question.correct_answer"
+                  [disabled]="submitted && answer.key !== selected"
+                  (click)="submitAnswer(answer.key)">{{ answer.value }}
+          </button>
+        </div>
+      }
+    }
+  }
 </div>
