@@ -40,7 +40,7 @@ import {MatButton} from "@angular/material/button";
   styleUrl: './question.component.css'
 })
 export class QuestionComponent {
-  @Input() questions!: Question[];
+  @Input() question!: Question;
 
   public selections = [];
   public multiple = false;
@@ -53,9 +53,9 @@ export class QuestionComponent {
   }
 
   ngAfterViewInit() {
-    console.log(this.questions)
+    console.log(this.question)
     // @ts-ignore
-    this.multiple = this.question.multiple_correct_answers == 'true';
+    this.multiple = this.question.multiple_correct_answers;
   }
 
   submit() {
