@@ -1,0 +1,54 @@
+<div class="clr-row margin-1">
+  <div class="clr-col-12 align-center">
+    <span cds-text="message">
+      Ignite your curiosity and dominate the tech world, becoming the ultimate champion of digital knowledge!
+    </span>
+  </div>
+</div>
+<div class="clr-row margin-2">
+  <div class="clr-col-12 align-center">
+    <span cds-text="body-rg">Choose the difficulty:</span>
+  </div>
+</div>
+<div class="clr-row margin-2">
+  <div class="clr-col-12 align-center">
+    <div class="btn-group">
+      <div class="radio btn">
+        <input type="radio" name="difficulty" id="easy"/>
+        <label for="easy">Easy</label>
+      </div>
+      <div class="radio btn">
+        <input type="radio" name="difficulty" id="medium"/>
+        <label for="medium">Medium</label>
+      </div>
+      <div class="radio btn">
+        <input type="radio" name="difficulty" id="hard"/>
+        <label for="hard">Hard</label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clr-row margin-2">
+  <div class="clr-col-12 align-center">
+    <span cds-text="body-rg">Choose the category:</span>
+  </div>
+</div>
+<div class="clr-row margin-2">
+  <div class="clr-col-12 align-center">
+    <div class="clr-row">
+      @for (category of categories; track category; let index = $index) {
+        <div class="clr-col-4">
+          <button class="btn btn-block">{{ category }}</button>
+        </div>
+        @if (index + 1 % 3 === 0) {
+          <div class="clr-break-row"></div>
+        }
+      }
+    </div>
+  </div>
+</div>
+<div class="clr-row margin-2">
+  <div class="clr-col-12 align-center">
+    <button class="btn btn-primary btn-block">Start</button>
+  </div>
+</div>
