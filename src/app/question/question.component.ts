@@ -18,27 +18,30 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   styleUrl: './question.component.css'
 })
 export class QuestionComponent {
+
   @Input() question!: Question;
+  @Output() onNextQuestion = new EventEmitter<boolean>();
 
   public selections = [];
   public multiple = false;
-  public loading = true;
   public submitted = false;
-  @Output() dataChange = new EventEmitter<any>();
 
   public selected = "";
 
-  constructor() {
-    this.loading = false;
-  }
-
-  ngAfterViewInit() {
-    console.log(this.question)
+  ngOnChanges() {
     this.multiple = this.question.multiple_correct_answers;
+    this.submitted = false;
+    this.selected = "";
   }
 
   submitAnswer(selectedAnswer: string) {
     this.selected = selectedAnswer;
     this.submitted = true;
   }
+
+  nextQuestion() {
+    let isCorrect = this.selected === this.question.correct_answer;
+    this.onNextQuestion.emit(isCorrect);
+  }
+
 }

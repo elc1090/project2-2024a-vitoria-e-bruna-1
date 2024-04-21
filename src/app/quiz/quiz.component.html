@@ -15,5 +15,5 @@
     </clr-alert-item>
   </clr-alert>
 } @else {
-  <app-question [question]="questions[questionIndex]"></app-question>
+  <app-question [question]="questions[questionIndex]" (onNextQuestion)="nextQuestion($event)"></app-question>
 }

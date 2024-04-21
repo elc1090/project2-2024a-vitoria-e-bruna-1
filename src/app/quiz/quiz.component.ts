@@ -24,6 +24,9 @@ export class QuizComponent {
   public questions: Question[] = [];
   public questionIndex = 0;
 
+  public correctAnswers = 0;
+  public wrongAnswers = 0;
+
   public loading = true;
   public hasError = false;
   public errorMessage = '';
@@ -43,7 +46,6 @@ export class QuizComponent {
         next: data => {
           this.loading = false;
           this.questions = data.map(question => Utils.questionConverter(question));
-          console.log(this.questions);
         },
         error: err => {
           this.loading = false;
@@ -52,5 +54,14 @@ export class QuizComponent {
         }
       }
     );
+  }
+
+  nextQuestion(isCorrect: boolean) {
+    if (isCorrect) {
+      this.correctAnswers++;
+    } else {
+      this.wrongAnswers++;
+    }
+    this.questionIndex++;
   }
 }
