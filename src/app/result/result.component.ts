@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ClrIconModule } from "@clr/angular";
 import { ClarityIcons, happyFaceIcon, sadFaceIcon } from "@cds/core/icon";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-result',
@@ -17,12 +18,16 @@ export class ResultComponent {
 
   public positiveFeedback = false;
 
-  constructor() {
+  constructor(private router: Router) {
     ClarityIcons.addIcons(happyFaceIcon);
     ClarityIcons.addIcons(sadFaceIcon);
   }
 
   ngOnChanges() {
     this.positiveFeedback = this.rightAnswersCount > 6;
+  }
+
+  goToMainMenu(){
+    this.router.navigate(['/'])
   }
 }
