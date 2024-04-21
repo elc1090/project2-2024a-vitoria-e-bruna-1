@@ -14,7 +14,7 @@
   <div class="clr-col-12 align-center">
     <div class="btn-group">
       <div class="radio btn">
-        <input type="radio" value="easy" id="easy"  [(ngModel)]="difficulty">
+        <input type="radio" value="easy" id="easy" [(ngModel)]="difficulty">
         <label for="easy">Easy</label>
       </div>
       <div class="radio btn">
@@ -35,10 +35,12 @@
 </div>
 <div class="clr-row margin-2">
   <div class="clr-col-12 align-center">
-    <div *ngIf="loading">
-      <clr-spinner clrInline>Loading</clr-spinner>
-      <span>Loading</span>
-    </div>
+    @if (loading) {
+      <div>
+        <clr-spinner clrInline>Loading</clr-spinner>
+        <span>Loading</span>
+      </div>
+    }
     <div class="clr-row">
       @for (category of categories; track category; let index = $index) {
         <div class="clr-col-4">
