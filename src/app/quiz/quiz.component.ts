@@ -5,14 +5,15 @@ import { Question } from "../model/question.model";
 import { Utils } from "../utils";
 import { QuizConfig } from "../model/quiz-config.model";
 import { Router } from "@angular/router";
-import { ClrSpinnerModule } from "@clr/angular";
+import { ClrAlertModule, ClrSpinnerModule } from "@clr/angular";
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
   imports: [
     QuestionComponent,
-    ClrSpinnerModule
+    ClrSpinnerModule,
+    ClrAlertModule
   ],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'
@@ -24,14 +25,12 @@ export class QuizComponent {
   public questionIndex = 0;
 
   public loading = true;
-  public error = false;
-  public message = '';
+  public hasError = false;
+  public errorMessage = '';
 
   constructor(private apiService: ApiService, private router: Router) {
     // @ts-ignore
     this.quizConfig = this.router.getCurrentNavigation()?.extras.state;
-    console.log(this.router.getCurrentNavigation()?.extras)
-    console.log(this.quizConfig)
   }
 
   ngOnInit() {
@@ -48,8 +47,8 @@ export class QuizComponent {
         },
         error: err => {
           this.loading = false;
-          this.error = true;
-          this.message = 'Failed to load questions';
+          this.hasError = true;
+          this.errorMessage = 'Failed to load questions';
         }
       }
     );

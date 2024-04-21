@@ -8,4 +8,12 @@
     </div>
   </div>
 }
-<app-question [question]="questions[questionIndex]"></app-question>
+@if (hasError) {
+  <clr-alert [clrAlertType]="'warning'">
+    <clr-alert-item>
+      <span class="alert-text align-center">{{ errorMessage }}</span>
+    </clr-alert-item>
+  </clr-alert>
+} @else {
+  <app-question [question]="questions[questionIndex]"></app-question>
+}
