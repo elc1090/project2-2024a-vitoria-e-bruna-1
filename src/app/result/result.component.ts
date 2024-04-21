@@ -14,7 +14,7 @@ import { Router } from "@angular/router";
 })
 export class ResultComponent {
 
-  @Input() rightAnswersCount!: number;
+  @Input() correctAnswersCount!: number;
 
   public positiveFeedback = false;
 
@@ -24,7 +24,7 @@ export class ResultComponent {
   }
 
   ngOnChanges() {
-    this.positiveFeedback = this.rightAnswersCount > 6;
+    this.positiveFeedback = this.correctAnswersCount > 6;
   }
 
   goToMainMenu(){

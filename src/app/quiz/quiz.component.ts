@@ -26,8 +26,8 @@ export class QuizComponent {
   public questions: Question[] = [];
   public questionIndex = 0;
 
-  public correctAnswers = 0;
-  public wrongAnswers = 0;
+  public correctAnswersCount = 0;
+  public wrongAnswersCount = 0;
 
   public loading = true;
   public hasError = false;
@@ -60,9 +60,9 @@ export class QuizComponent {
 
   nextQuestion(isCorrect: boolean) {
     if (isCorrect) {
-      this.correctAnswers++;
+      this.correctAnswersCount++;
     } else {
-      this.wrongAnswers++;
+      this.wrongAnswersCount++;
     }
     this.questionIndex++;
   }

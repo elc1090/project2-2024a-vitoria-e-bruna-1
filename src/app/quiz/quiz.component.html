@@ -16,7 +16,7 @@
     </clr-alert>
   } @else {
     @if (questionIndex === questions.length) {
-      <app-result [rightAnswersCount]="9"></app-result>
+      <app-result [correctAnswersCount]="correctAnswersCount"></app-result>
     } @else {
       <app-question [question]="questions[questionIndex]" (onNextQuestion)="nextQuestion($event)"></app-question>
     }
