@@ -5,7 +5,7 @@ import { Question } from "../model/question.model";
 import { Utils } from "../utils";
 import { QuizConfig } from "../model/quiz-config.model";
 import { Router } from "@angular/router";
-import { ClrAlertModule, ClrSpinnerModule } from "@clr/angular";
+import { ClrAlertModule, ClrProgressBarModule, ClrSpinnerModule } from "@clr/angular";
 import { ResultComponent } from "../result/result.component";
 
 @Component({
@@ -15,7 +15,8 @@ import { ResultComponent } from "../result/result.component";
     QuestionComponent,
     ClrSpinnerModule,
     ClrAlertModule,
-    ResultComponent
+    ResultComponent,
+    ClrProgressBarModule
   ],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'

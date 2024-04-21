@@ -50,7 +50,6 @@ export class MainMenuComponent {
       this.hasError = true;
       this.errorMessage = 'Please select a difficulty';
     } else {
-      // this.dataChange.emit({difficulty: this.difficulty, category: category});
       let quizConfig = new QuizConfig(this.difficulty, category);
       this.router.navigate(['/quiz'], {state: quizConfig})
     }

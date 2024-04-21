@@ -15,6 +15,11 @@
       </clr-alert-item>
     </clr-alert>
   } @else {
+    <div class="clr-row margin-1">
+      <div class="clr-col-12">
+        <clr-progress-bar [clrValue]="questionIndex" [clrMax]="questions.length"></clr-progress-bar>
+      </div>
+    </div>
     @if (questionIndex === questions.length) {
       <app-result [correctAnswersCount]="correctAnswersCount"></app-result>
     } @else {
