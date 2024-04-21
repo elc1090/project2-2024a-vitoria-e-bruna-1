@@ -5,12 +5,14 @@ import { Question } from "../model/question.model";
 import { Utils } from "../utils";
 import { QuizConfig } from "../model/quiz-config.model";
 import { Router } from "@angular/router";
+import { ClrSpinnerModule } from "@clr/angular";
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
   imports: [
-    QuestionComponent
+    QuestionComponent,
+    ClrSpinnerModule
   ],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'
@@ -21,7 +23,7 @@ export class QuizComponent {
   public questions: Question[] = [];
   public questionIndex = 0;
 
-  public loading = false;
+  public loading = true;
   public error = false;
   public message = '';
 

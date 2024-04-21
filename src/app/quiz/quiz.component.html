@@ -1,1 +1,11 @@
+@if (loading) {
+  <div class="clr-row margin-2">
+    <div class="clr-col-12 align-center">
+      <div>
+        <clr-spinner clrInline>Loading</clr-spinner>
+        <span>Loading</span>
+      </div>
+    </div>
+  </div>
+}
 <app-question [question]="questions[questionIndex]"></app-question>
