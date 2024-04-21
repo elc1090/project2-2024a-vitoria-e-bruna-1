@@ -53,12 +53,14 @@
     </div>
   </div>
 </div>
-<div class="clr-row margin-2">
+<div class="clr-row">
   <div class="clr-col-12 align-center">
-    <clr-alert [clrAlertType]="'warning'" *ngIf="error">
-      <clr-alert-item>
-        <span class="alert-text align-center">{{ message }}</span>
-      </clr-alert-item>
-    </clr-alert>
+    @if (hasError) {
+      <clr-alert [clrAlertType]="'warning'">
+        <clr-alert-item>
+          <span class="alert-text align-center">{{ errorMessage }}</span>
+        </clr-alert-item>
+      </clr-alert>
+    }
   </div>
 </div>
