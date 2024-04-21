@@ -6,6 +6,7 @@ import { Utils } from "../utils";
 import { QuizConfig } from "../model/quiz-config.model";
 import { Router } from "@angular/router";
 import { ClrAlertModule, ClrSpinnerModule } from "@clr/angular";
+import { ResultComponent } from "../result/result.component";
 
 @Component({
   selector: 'app-quiz',
@@ -13,7 +14,8 @@ import { ClrAlertModule, ClrSpinnerModule } from "@clr/angular";
   imports: [
     QuestionComponent,
     ClrSpinnerModule,
-    ClrAlertModule
+    ClrAlertModule,
+    ResultComponent
   ],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'

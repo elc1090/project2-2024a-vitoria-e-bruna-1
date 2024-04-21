@@ -7,13 +7,18 @@
       </div>
     </div>
   </div>
-}
-@if (hasError) {
-  <clr-alert [clrAlertType]="'warning'">
-    <clr-alert-item>
-      <span class="alert-text align-center">{{ errorMessage }}</span>
-    </clr-alert-item>
-  </clr-alert>
 } @else {
-  <app-question [question]="questions[questionIndex]" (onNextQuestion)="nextQuestion($event)"></app-question>
+  @if (hasError) {
+    <clr-alert [clrAlertType]="'warning'">
+      <clr-alert-item>
+        <span class="alert-text align-center">{{ errorMessage }}</span>
+      </clr-alert-item>
+    </clr-alert>
+  } @else {
+    @if (questionIndex === questions.length) {
+      <app-result [rightAnswersCount]="9"></app-result>
+    } @else {
+      <app-question [question]="questions[questionIndex]" (onNextQuestion)="nextQuestion($event)"></app-question>
+    }
+  }
 }
