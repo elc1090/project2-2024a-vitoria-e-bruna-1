@@ -9,8 +9,8 @@
       @if (answer.value != null) {
         <div class="clr-col-12">
           <button class="btn btn-block"
-                  [class.btn-success]="submitted && answer.key === this.selected && answer.key === this.question.correct_answer"
-                  [class.btn-danger]="submitted && answer.key === this.selected && answer.key !== this.question.correct_answer"
+                  [class.btn-success]="submitted && answer.key === selected && answer.key === question.correct_answer"
+                  [class.btn-danger]="submitted && answer.key === selected && answer.key !== question.correct_answer"
                   [disabled]="submitted && answer.key !== selected"
                   (click)="submitAnswer(answer.key)">{{ answer.value }}
           </button>

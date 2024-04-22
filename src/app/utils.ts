@@ -4,7 +4,9 @@ export class Utils {
   static questionConverter(question: Question) {
     // @ts-ignore
     question.multiple_correct_answers = question.multiple_correct_answers == 'true';
-
+    if (question.multiple_correct_answers) {
+      return;
+    }
     question.answers = new Map(Object.entries(question.answers));
     question.correct_answers = new Map(Object.entries(question.correct_answers));
     // @ts-ignore

@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Question } from "../model/question.model";
-import { KeyValuePipe, NgForOf, NgIf, NgStyle } from "@angular/common";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Question} from "../model/question.model";
+import {KeyValuePipe, NgForOf, NgIf, NgStyle} from "@angular/common";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ClrIconModule} from "@clr/angular";
 
 @Component({
   selector: 'app-question',
@@ -12,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     KeyValuePipe,
     FormsModule,
     ReactiveFormsModule,
-    NgStyle
+    NgStyle,
+    ClrIconModule
   ],
   templateUrl: './question.component.html',
   styleUrl: './question.component.css'
@@ -22,14 +24,11 @@ export class QuestionComponent {
   @Input() question!: Question;
   @Output() onNextQuestion = new EventEmitter<boolean>();
 
-  public selections = [];
-  public multiple = false;
   public submitted = false;
 
   public selected = "";
 
   ngOnChanges() {
-    this.multiple = this.question.multiple_correct_answers;
     this.submitted = false;
     this.selected = "";
   }

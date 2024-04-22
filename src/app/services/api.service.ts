@@ -22,6 +22,6 @@ export class ApiService {
   getQuestions(quizConfig: QuizConfig): Observable<Question[]> {
     let categoryParam = `&category=${quizConfig.category}`
     let difficultyParam = `&difficulty=${quizConfig.difficulty}`
-    return this.http.get<Question[]>(`${this.apiUrl}/questions?apiKey=${this.apiKey}${categoryParam}${difficultyParam}&limit=10`);
+    return this.http.get<Question[]>(`${this.apiUrl}/questions?apiKey=${this.apiKey}${categoryParam}${difficultyParam}&limit=20`);
   }
 }

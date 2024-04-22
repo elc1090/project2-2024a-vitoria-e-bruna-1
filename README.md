@@ -8,9 +8,9 @@
 > 6. Entregue este README.md dentro da pasta raiz do repositório de entrega.
      > Opcional: é permitido alterar a formatação do README, desde que sejam mantidas todas as informações solicitadas (tudo bem adicionar mais informações)
 
-![Substitua a imagem ao lado por um screenshot do seu projeto](https://mdswanson.com/static/chops-ux-step-4.png "Screenshot do projeto")
+![img.png](img.png "Screenshot do projeto")
 
-Acesso: Substitua este texto pela URL de deploy do projeto
+Acesso: https://techquiz-l3hq.onrender.com
 
 ### Desenvolvedores
 
@@ -56,8 +56,6 @@ Substitua este trecho por uma lista detalhada de tecnologias usadas (tanto as b�
 - WebStorm
 
 #### Referências e créditos
-
-Substitua este trecho por uma lista bem detalhada de todo material consultado para ajudar no projeto, por exemplo:  URL de templates usados, URL de icon kits usados, créditos para colegas que colaboraram, geradores de código (incluindo alguns prompts usados para o ChatGPT, se for o caso)
 
 - https://angular.dev/
 - https://clarity.design/

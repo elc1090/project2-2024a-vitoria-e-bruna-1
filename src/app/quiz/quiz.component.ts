@@ -48,7 +48,11 @@ export class QuizComponent {
     this.apiService.getQuestions(quizConfig).subscribe({
         next: data => {
           this.loading = false;
-          this.questions = data.map(question => Utils.questionConverter(question));
+          for (let i = 0; i < data.length; i++) {
+            let question = Utils.questionConverter(data[i]);
+            if (question) this.questions.push(question);
+            if (this.questions.length >= 10) break;
+          }
         },
         error: err => {
           this.loading = false;

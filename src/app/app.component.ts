@@ -25,8 +25,5 @@ export class AppComponent {
   }
 
   onDataChange(data: QuizConfig) {
-    // Use the data here
-    console.log("app.component", data);
-    // this.getQuestions(data.category, data.difficulty);
   }
 }

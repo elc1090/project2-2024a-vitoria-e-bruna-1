@@ -17,7 +17,7 @@
   } @else {
     <div class="clr-row margin-1">
       <div class="clr-col-12">
-        <clr-progress-bar [clrValue]="questionIndex" [clrMax]="questions.length"></clr-progress-bar>
+        <clr-progress-bar style="height: 50%" [clrValue]="questionIndex" [clrMax]="questions.length"></clr-progress-bar>
       </div>
     </div>
     @if (questionIndex === questions.length) {
