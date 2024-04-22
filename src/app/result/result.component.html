@@ -1,0 +1,29 @@
+<div class="clr-row margin-2">
+  <div class="clr-col-12 align-center">
+    <span cds-text="display" class="span-vertical-center">
+      @if (positiveFeedback) {
+        <cds-icon shape="happy-face" size="xxl" status="success"></cds-icon>
+        Congratulations!
+      } @else {
+        <cds-icon shape="sad-face" size="xxl" status="danger"></cds-icon>
+        What a pity!
+      }
+    </span>
+  </div>
+</div>
+<div class="clr-row margin-2">
+  <div class="clr-col-12 align-center">
+    <span cds-text="section">
+      @if (positiveFeedback) {
+        You got {{ correctAnswersCount }} questions right!
+      } @else {
+        You got just {{ correctAnswersCount }} questions right...
+      }
+    </span>
+  </div>
+</div>
+<div class="clr-row margin-2">
+  <div class="clr-col-12 align-center">
+    <button class="btn btn-primary" (click)="goToMainMenu()">Back to Main Menu</button>
+  </div>
+</div>

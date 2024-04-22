@@ -23,8 +23,8 @@ export class MainMenuComponent {
 
   public categories: string[] = [];
   public loading = false;
-  public error = false;
-  public message = '';
+  public hasError = false;
+  public errorMessage = '';
   public difficulty = '';
 
   constructor(private apiService: ApiService, private router: Router) {
@@ -39,19 +39,17 @@ export class MainMenuComponent {
       },
       error: error => {
         this.loading = false;
-        this.error = true;
-        this.message = 'Failed to load categories';
+        this.hasError = true;
+        this.errorMessage = 'Failed to load categories';
       }
     });
   }
 
   send(category: string) {
     if (this.difficulty === '') {
-      this.error = true;
-      this.message = 'Please select a difficulty';
-      // return;
+      this.hasError = true;
+      this.errorMessage = 'Please select a difficulty';
     } else {
-      // this.dataChange.emit({difficulty: this.difficulty, category: category});
       let quizConfig = new QuizConfig(this.difficulty, category);
       this.router.navigate(['/quiz'], {state: quizConfig})
     }

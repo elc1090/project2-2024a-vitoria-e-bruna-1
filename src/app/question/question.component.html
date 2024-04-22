@@ -1,36 +1,4 @@
-<!--<p>question works! {{ question.id }}</p>-->
-
-<!--<mat-card class="card">-->
-<!--  <div *ngIf="loading">-->
-<!--    <mat-progress-bar mode="indeterminate"></mat-progress-bar>-->
-<!--  </div>-->
-<!--  <mat-card-header>-->
-<!--    {{ question.question }}-->
-<!--    &lt;!&ndash;  <mat-card-title>{{ question.question }}</mat-card-title>&ndash;&gt;-->
-<!--  </mat-card-header>-->
-<!--  <mat-card-content>-->
-<!--    <div *ngIf="!multiple">-->
-<!--      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"-->
-<!--                       [(ngModel)]="selections">-->
-<!--        <div *ngFor="let answer of question.answers | keyvalue">-->
-<!--          <mat-radio-button *ngIf="answer.value != null" [value]="answer.key">{{ answer.value }}</mat-radio-button>-->
-<!--        </div>-->
-<!--      </mat-radio-group>-->
-<!--    </div>-->
-<!--    <div *ngIf="multiple">-->
-<!--      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="selections">-->
-<!--        <div *ngFor="let answer of question.answers | keyvalue">-->
-<!--          <mat-checkbox *ngIf="answer.value != null" [value]="answer.key">{{ answer.value }}</mat-checkbox>-->
-<!--        </div>-->
-<!--      </mat-radio-group>-->
-<!--    </div>-->
-
-<!--    <div class="flex-container">-->
-<!--      <button mat-raised-button color="primary" (click)="submit()">Submit</button>-->
-<!--    </div>-->
-<!--  </mat-card-content>-->
-<!--</mat-card>-->
-<div class="clr-row margin-1">
+<div class="clr-row margin-2">
   <div class="clr-col-12 align-center">
     <span cds-text="message">{{ question.question }}</span>
   </div>
@@ -51,3 +19,10 @@
     }
   }
 </div>
+@if (submitted) {
+  <div class="clr-row margin-2">
+    <div class="clr-col-12 align-center">
+      <button class="btn btn-primary" (click)="nextQuestion()">Next</button>
+    </div>
+  </div>
+}

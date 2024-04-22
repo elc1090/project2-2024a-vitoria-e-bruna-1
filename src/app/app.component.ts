@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Question } from "./model/question.model";
 import { ApiService } from "./services/api.service";
 import { QuestionComponent } from "./question/question.component";
 import { ClarityIcons, codeIcon } from "@cds/core/icon";
@@ -19,16 +18,11 @@ import { QuizConfig } from "./model/quiz-config.model";
 })
 export class AppComponent {
 
-  public questions: Question[] = [];
   public loading = false;
-  public error = false;
-  public message = '';
 
   constructor(private questionService: ApiService) {
     ClarityIcons.addIcons(codeIcon);
   }
-
-
 
   onDataChange(data: QuizConfig) {
     // Use the data here
