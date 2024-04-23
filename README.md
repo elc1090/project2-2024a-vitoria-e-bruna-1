@@ -32,7 +32,19 @@ Também será utilizado o _endpoint_ ``/api/v1/categories`` para receber todas a
 
 ### Desenvolvimento
 
-Substitua este texto por uma descrição do processo de desenvolvimento, explicando decisões tomadas e etapas do trabalho.
+Antes de iniciar o projeto, foi decidido que o desenvolvimento seria feito utilizando o framework Angular, pois as duas desenvolvedoras 
+tinham familiaridade com a tecnologia e enxergaram uma oportunidade de aplicar seus conhecimentos.
+
+Inicialmente, havia sido escolhida a biblioteca Angular Material para facilitar a estilização da aplicação, pois ela oferece diversos 
+componentes prontos. Entretanto, encontrou-se dificuldade em algumas questões, como por exemplo o sistema de Grid. Ao pesquisar sobre o 
+assunto, descobriu-se que a implementação do Material Design para Angular não é ideal. Portanto, optou-se por substituir esta biblioteca.
+
+Assim, passou-se a utilzar o Clarity Design System, que é altamente compatível com Angular e correspondia às expectativas das desenvolvedoras. 
+Esta escolha facilitou o desenvolvimento da aplicação.
+
+Quanto às regras de negócio, optou-se por não utilizar as tags providas pela API, para facilitar a configuração do quiz. No entanto, 
+encontrou-se dificuldade em tratar as questões que possuíam múltiplas respostas, pois sua validação seria mais complexa. Portanto, as questões 
+da API foram filtradas pela aplicação para que somente fossem mostradas questões com resposta única.
 
 #### Tecnologias
 
