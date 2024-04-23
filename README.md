@@ -1,16 +1,8 @@
 # Projeto: TechQuiz
 
-> 1. Baixe este arquivo e edite o texto em formato Markdown conforme as instruções a seguir.
-> 2. Substitua todos os trechos de texto iniciados com "Substitua" por informações do seu projeto, conforme solicitado em cada trecho.
-> 3. Substitua a imagem por um screenshot do projeto (arquivo pode ser armazenado no repositório ou em URL externa). GIFs animados também são permitidos!
-> 4. Remova todas as instruções de entrega.
-> 5. Double-check: Certifique-se de que seu README.md não contenha instruções de entrega!
-> 6. Entregue este README.md dentro da pasta raiz do repositório de entrega.
-     > Opcional: é permitido alterar a formatação do README, desde que sejam mantidas todas as informações solicitadas (tudo bem adicionar mais informações)
-
 ![img.png](img.png "Screenshot do projeto")
 
-Acesso: https://techquiz-l3hq.onrender.com
+Acesso: https://techquizv2-r7rainv4u-pizzuttas-projects.vercel.app/
 
 ### Desenvolvedores
 
@@ -43,8 +35,6 @@ Também será utilizado o _endpoint_ ``/api/v1/categories`` para receber todas a
 Substitua este texto por uma descrição do processo de desenvolvimento, explicando decisões tomadas e etapas do trabalho.
 
 #### Tecnologias
-
-Substitua este trecho por uma lista detalhada de tecnologias usadas (tanto as básicas, como HTML e CSS, como as mais específicas, por exemplo algum framework para frontend, etc.):
 
 - HTML
 - CSS
